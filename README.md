@@ -1,1 +1,1 @@
-# Tetris
+Mein erstes Mini Projekt. :)
