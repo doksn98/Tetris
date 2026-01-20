@@ -2,22 +2,23 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Dogukan's Tetris</title>
+    <title>Tetris</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
         <canvas id="tetris" width="480" height="800"></canvas>
 
+        <div id="start-screen" class="overlay">
+            <h2>Tetris</h2>
+            <p>Drücke eine Taste zum Starten</p>
+        </div>
+
         <div class="ui"> 
-            <h1>Tetris</h1>
-            <p>Punkte <span id="score">0</span></p>
-            <p><small>Pfeiltasten zum Bewegen</small></p>
+            <h1>Punkte</h1>
+            <p id="score">0</p>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
