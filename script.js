@@ -1,6 +1,8 @@
 
 const canvas = document.getElementById('tetris');
 
+let gameStarted = false;
+
 if (!canvas) {
     console.error('Canvas element #tetris not found. Script aborted.');
 } else {
@@ -33,7 +35,7 @@ if (!canvas) {
         return matrix;
     }
 
-    const arena = createMatrix(12, 20);
+    const arena = createMatrix(24, 40);
 
     const playerMatrix = [
         [0, 1, 0],
@@ -173,7 +175,7 @@ if (!canvas) {
     }
 
     let dropCounter = 0;
-    let dropInterval = 1000; 
+    let dropInterval = 300; 
     let lastTime = 0;
 
     function update(time = 0) {
@@ -234,5 +236,22 @@ if (!canvas) {
         }
     });
 
-    update();
-}
+document.addEventListener('keydown', event => {
+    if (!gameStarted) {
+        const screen = document.getElementById('start-screen');
+        if (screen) {
+            // 1. Startmenü ausblenden
+            screen.style.display = 'none';
+            
+            // 2. WICHTIG: Punkte-Anzeige wieder einblenden!
+            document.querySelector('.ui').style.display = 'block'; 
+
+            // 3. Spiel starten
+            gameStarted = true;
+            playerReset();
+            updateScore();
+            update();
+        }
+    }
+});
+}   
