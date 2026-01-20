@@ -1,7 +1,7 @@
 body {
-background: #202028;
-color: #fff;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #5c798a;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,17 +9,63 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
 }
 
- Das Spielfeld
-canvas {
-    border: solid 2px #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
 .game-container {
+    position: relative; 
     display: flex;
     align-items: flex-start;
     gap: 30px;
 }
 
-h1 { margin-top: 0; }
+canvas {
+    border: solid 2px #fff;
+    box-shadow: 0 0 20px rgba(0, 255, 242, 0.85);
+    display: block;
+}
 
+/* Das Start-Overlay --- */
+#start-screen {
+    position: absolute; /* Losgelöst vom normalen Fluss */
+    top: 0;
+    left: 0;
+    width: 100%;  /* Deckt den Container (Canvas) komplett ab */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Dunkler Hintergrund */
+    
+    /* Zentrieren: */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;    
+    z-index: 10; 
+}
+
+#start-screen h2 {
+    font-size: 50px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+#start-screen p {
+    font-size: 20px;
+    color: #ddd;
+}
+
+/* --- UI (Punkte) --- */
+.ui {
+    display: none; 
+    min-width: 120px;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#score {
+    font-size: 40px;
+    margin: 0;
+    font-weight: bold;
+}
